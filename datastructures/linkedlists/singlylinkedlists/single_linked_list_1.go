@@ -1,6 +1,8 @@
 package singlylinkedlists
 
-import "errors"
+import (
+	"errors"
+)
 
 var (
 	errEmptyList        = errors.New("list is empty")
@@ -35,6 +37,23 @@ func (s *SinglyLinkedList[T]) InsertAt(index int, value T) error {
 		return errIndexOutOfBounds
 	}
 	element := &SLLNode[T]{Value: value}
+
+	if s.IsEmpty() {
+		s.head = element
+		s.tail = element
+		s.count++
+		element = nil
+		return nil
+	}
+
+	if index == 0 {
+		element.Next = s.head
+		s.head = element
+		element = nil
+		s.count++
+		return nil
+	}
+
 	if index == s.count {
 		s.tail.Next = element
 		s.tail = element
