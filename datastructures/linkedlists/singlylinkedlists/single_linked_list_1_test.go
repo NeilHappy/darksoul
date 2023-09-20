@@ -2,6 +2,7 @@ package singlylinkedlists
 
 import (
 	"github.com/stretchr/testify/assert"
+	"reflect"
 	"testing"
 )
 
@@ -47,5 +48,17 @@ func TestSinglyLinkedList_GetLastValue(t *testing.T) {
 	value, err = list.GetLastValue()
 	assert.Nil(t, err)
 	assert.Equal(t, "222", value)
+
+}
+
+func TestSinglyLinkedList_GetValues(t *testing.T) {
+	list := New[string]()
+	assert.True(t, reflect.DeepEqual(list.GetValues(), []string{}))
+
+	list.Add("a", "b", "c")
+	assert.True(t, reflect.DeepEqual(list.GetValues(), []string{"a", "b", "c"}))
+
+	list.InsertAt(1, "d")
+	assert.True(t, reflect.DeepEqual(list.GetValues(), []string{"a", "d", "b", "c"}))
 
 }

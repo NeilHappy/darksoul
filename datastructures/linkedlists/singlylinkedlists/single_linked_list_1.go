@@ -84,6 +84,17 @@ func (s *SinglyLinkedList[T]) GetLastValue() (res T, err error) {
 	return s.tail.Value, nil
 }
 
+func (s *SinglyLinkedList[T]) GetValues() []T {
+	values := make([]T, 0, s.Size())
+	current := s.head
+	for current != nil {
+		values = append(values, current.Value)
+		current = current.Next
+	}
+	current = nil
+	return values
+}
+
 // New generate a singly linked list
 func New[T any](values ...T) *SinglyLinkedList[T] {
 	s := &SinglyLinkedList[T]{}
