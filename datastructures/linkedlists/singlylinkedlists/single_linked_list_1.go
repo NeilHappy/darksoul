@@ -2,6 +2,7 @@ package singlylinkedlists
 
 import (
 	"errors"
+	"reflect"
 )
 
 var (
@@ -154,6 +155,25 @@ func (s *SinglyLinkedList[T]) GetNode(index int) (*SLLNode[T], error) {
 		current = current.Next
 	}
 	return current, nil
+}
+
+func (s *SinglyLinkedList[T]) GetIndexOf(value T) int {
+	current := s.head
+	index := 0
+	for current != nil {
+		if reflect.DeepEqual(value, current.Value) {
+			return index
+		}
+		current = current.Next
+		index++
+	}
+	return -1
+}
+
+func (s *SinglyLinkedList[T]) Clear() {
+	s.head = nil
+	s.tail = nil
+	s.count = 0
 }
 
 // New generate a singly linked list

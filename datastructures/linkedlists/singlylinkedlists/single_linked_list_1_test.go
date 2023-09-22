@@ -98,3 +98,53 @@ func TestSinglyLinkedList_Size(t *testing.T) {
 	assert.Equal(t, list.Size(), 2)
 
 }
+
+func TestSinglyLinkedList_GetIndexOf(t *testing.T) {
+	list := New[string]()
+	assert.Equal(t, list.GetIndexOf("abc"), -1)
+	list.Add("abc")
+	assert.Equal(t, list.GetIndexOf("abc"), 0)
+	list.Add("def")
+	assert.Equal(t, list.GetIndexOf("def"), 1)
+	list.Add("def")
+	assert.Equal(t, list.GetIndexOf("def"), 1)
+
+}
+
+func TestSinglyLinkedList_InsertAt(t *testing.T) {
+	list := New[string]()
+	err := list.InsertAt(0, "abc")
+	assert.Nil(t, err)
+
+	err = list.InsertAt(3, "abc")
+	assert.NotNil(t, err)
+
+}
+
+func TestSinglyLinkedList_RemoveAt(t *testing.T) {
+	list := New[string]()
+	_, err := list.RemoveAt(0)
+	assert.NotNil(t, err)
+
+	list.Add("abc")
+	value, err := list.RemoveAt(0)
+	assert.Nil(t, err)
+	assert.True(t, reflect.DeepEqual(value, "abc"))
+
+}
+
+func TestSinglyLinkedList_Clear(t *testing.T) {
+	list := New[string]()
+	list.Add("abc")
+	list.Clear()
+	assert.True(t, reflect.DeepEqual(list.GetValues(), []string{}))
+	assert.Equal(t, list.Size(), 0)
+	assert.Equal(t, list.IsEmpty(), true)
+
+	list.Add("abc")
+	list.Clear()
+	assert.True(t, reflect.DeepEqual(list.GetValues(), []string{}))
+	assert.Equal(t, list.Size(), 0)
+	assert.Equal(t, list.IsEmpty(), true)
+
+}
