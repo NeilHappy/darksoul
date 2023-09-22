@@ -95,6 +95,67 @@ func (s *SinglyLinkedList[T]) GetValues() []T {
 	return values
 }
 
+func (s *SinglyLinkedList[T]) RemoveAt(index int) (res T, err error) {
+	if index < 0 || index >= s.count {
+		return res, errIndexOutOfBounds
+	}
+
+	// only one item
+	if s.count == 1 {
+		res = s.head.Value
+		s.head = nil
+		s.tail = nil
+		s.count--
+		return res, nil
+	}
+
+	// delete the first item
+	if index == 0 {
+		res = s.head.Value
+		s.head = s.head.Next
+		s.count--
+		return res, nil
+	}
+
+	// find the previous one node before the target:
+	previous, err := s.GetNode(index - 1)
+	if err != nil {
+		return res, err
+	}
+	res = previous.Next.Value
+	previous.Next = previous.Next.Next
+
+	// if target is the last one node
+	if index == s.count-1 {
+		// assign the tail to the one node before the last
+		s.tail = previous
+	}
+	s.count--
+	return res, nil
+}
+
+func (s *SinglyLinkedList[T]) GetNode(index int) (*SLLNode[T], error) {
+	if index < 0 || index >= s.count {
+		return nil, errIndexOutOfBounds
+	}
+	/*
+		i := 0
+		current := s.head
+		for current != nil {
+			if index == i {
+				return current, nil
+			}
+			current = current.Next
+			i++
+		}
+	*/
+	current := s.head
+	for i := 0; i < index; i++ {
+		current = current.Next
+	}
+	return current, nil
+}
+
 // New generate a singly linked list
 func New[T any](values ...T) *SinglyLinkedList[T] {
 	s := &SinglyLinkedList[T]{}
