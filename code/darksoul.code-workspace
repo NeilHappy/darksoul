@@ -5,6 +5,9 @@
 		},
 		{
 			"path": "../../grpc-go"
+		},
+		{
+			"path": "../../../../Library/Mobile Documents/com~apple~CloudDocs/English/Code/design patterns"
 		}
 	],
 	"settings": {}
