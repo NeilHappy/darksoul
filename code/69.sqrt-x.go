@@ -11,14 +11,21 @@ func mySqrt(x int) int {
 	if x <= 1 {
 		return x
 	}
-	for {
-		current := x / 2
-		next := current + 1
-		if current*current <= x && next*next > x {
-			return current
+	left := 0
+	right := x
+	ans := 1
+	for left <= right {
+		mid := left + (right-left)>>1
+		if mid*mid == x {
+			return mid
+		} else if mid*mid < x {
+			left = mid + 1
+		} else {
+			right = mid - 1
+			ans = right
 		}
-		x = current
 	}
+	return ans
 }
 
 // @lc code=end
