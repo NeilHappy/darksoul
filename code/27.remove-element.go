@@ -3,7 +3,7 @@
  *
  * [27] Remove Element
  */
-package code
+package main
 
 // @lc code=start
 func removeElement(nums []int, val int) int {
