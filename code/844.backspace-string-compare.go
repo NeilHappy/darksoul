@@ -6,6 +6,7 @@
 
 // @lc code=start
 
+// TODO官方题解还有另外的解法
 package main
 
 import "fmt"
@@ -24,7 +25,7 @@ func getCleanStr(s string) string {
 		} else {
 			if fast == 0 {
 				continue
-			} else {
+			} else if slow != 0 {
 				slow--
 			}
 		}
@@ -33,8 +34,11 @@ func getCleanStr(s string) string {
 	return string(resultSlice[:slow])
 
 }
+
+/*
 func main() {
 	fmt.Printf("%s\n", getCleanStr("a#c"))
 }
+*/
 
 // @lc code=end
