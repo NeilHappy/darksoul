@@ -4,21 +4,18 @@
  * [26] Remove Duplicates from Sorted Array
  */
 
-package code
+package main
 
 // @lc code=start
 func removeDuplicates(nums []int) int {
 	slow := 0
-	for fast := 1; fast < len(nums); {
-		if nums[fast] == nums[slow] {
-			fast++
-		} else {
+	for fast := 1; fast < len(nums); fast++ {
+		if nums[slow] != nums[fast] {
 			slow++
 			nums[slow] = nums[fast]
 		}
 	}
 	return slow + 1
-
 }
 
 // @lc code=end

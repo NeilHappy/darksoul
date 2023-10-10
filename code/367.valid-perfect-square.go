@@ -3,23 +3,24 @@
  *
  * [367] Valid Perfect Square
  */
-package code
+package main
 
 // @lc code=start
 func isPerfectSquare(num int) bool {
-	left, right := 0, num
-	for left <= right {
+	left := 0
+	right := num + 1
+	for left < right {
 		mid := left + (right-left)>>1
 		if mid*mid == num {
 			return true
 		} else if mid*mid < num {
 			left = mid + 1
 		} else {
-			right = mid - 1
+			right = mid
 		}
 	}
-	return false
 
+	return false
 }
 
 // @lc code=end

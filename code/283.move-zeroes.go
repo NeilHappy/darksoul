@@ -4,29 +4,21 @@
  * [283] Move Zeroes
  */
 
-package code
+package main
 
 // @lc code=start
 func moveZeroes(nums []int) {
 	slow := 0
 	for fast := 0; fast < len(nums); fast++ {
-		if nums[fast] != 0 {
+		if nums[fast] == 0 {
+			continue
+		} else {
 			nums[slow] = nums[fast]
 			slow++
-		} else {
-			continue
 		}
-		/*
-			if nums[fast] == 0 {
-				continue
-			} else {
-				nums[slow] = nums[fast]
-				slow++
-			}
-		*/
 	}
-	for i := slow; i < len(nums); i++ {
-		nums[i] = 0
+	for ; slow < len(nums); slow++ {
+		nums[slow] = 0
 	}
 
 }

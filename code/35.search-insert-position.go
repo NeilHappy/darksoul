@@ -3,7 +3,7 @@
  *
  * [35] Search Insert Position
  */
-package code
+package main
 
 // @lc code=start
 func searchInsert(nums []int, target int) int {
@@ -20,6 +20,7 @@ func searchInsert(nums []int, target int) int {
 		}
 	}
 	return left
+
 }
 
 // @lc code=end

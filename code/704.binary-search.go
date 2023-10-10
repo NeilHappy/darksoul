@@ -3,25 +3,22 @@
  *
  * [704] Binary Search
  */
- package code
+package main
 
 // @lc code=start
 func search(nums []int, target int) int {
-	high := len(nums)
-	low := 0
-	for low < high {
-		mid := low + (high-low)/2
+	left, right := 0, len(nums)
+	for left < right {
+		mid := left + (right-left)>>1
 		if target == nums[mid] {
 			return mid
-		} else if target > nums[mid] {
-			low = mid + 1
+		} else if target < nums[mid] {
+			right = mid
 		} else {
-			high = mid
+			left = mid + 1
 		}
 	}
-
 	return -1
 }
 
 // @lc code=end
-
