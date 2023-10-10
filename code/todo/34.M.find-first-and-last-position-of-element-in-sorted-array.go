@@ -16,6 +16,7 @@ package code
 
 // @lc code=start
 func searchRange(nums []int, target int) []int {
+	
 	return nil
 }
 

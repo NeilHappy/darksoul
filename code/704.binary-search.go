@@ -3,6 +3,7 @@
  *
  * [704] Binary Search
  */
+ package code
 
 // @lc code=start
 func search(nums []int, target int) int {
