@@ -10,7 +10,9 @@ package main
 func removeDuplicates(nums []int) int {
 	slow := 0
 	for fast := 1; fast < len(nums); fast++ {
-		if nums[slow] != nums[fast] {
+		if nums[fast] == nums[slow] {
+			continue
+		} else {
 			slow++
 			nums[slow] = nums[fast]
 		}

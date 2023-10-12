@@ -8,22 +8,19 @@ package main
 
 // @lc code=start
 func mySqrt(x int) int {
-	if x <= 0 {
-		return 0
-	}
-	left := 0
-	right := x + 1
-	for left < right {
-		mid := left + (right-left)>>1
+	low := 0
+	high := x + 1
+	for low < high {
+		mid := low + (high-low)>>1
 		if mid*mid == x {
 			return mid
 		} else if mid*mid > x {
-			right = mid
+			high = mid
 		} else {
-			left = mid + 1
+			low = mid + 1
 		}
 	}
-	return left - 1
+	return low - 1
 }
 
 // @lc code=end
