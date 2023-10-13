@@ -11,15 +11,15 @@ func searchInsert(nums []int, target int) int {
 	right := len(nums)
 	for left < right {
 		mid := left + (right-left)>>1
-		if target == nums[mid] {
+		if nums[mid] == target {
 			return mid
-		} else if target > nums[mid] {
-			left = mid + 1
-		} else {
+		} else if nums[mid] > target {
 			right = mid
+		} else {
+			left = mid + 1
 		}
 	}
-	return left
+	return right
 
 }
 

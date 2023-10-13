@@ -3,7 +3,7 @@
  *
  * [34] Find First and Last Position of Element in Sorted Array
  */
-package code
+package main
 
 /*
 
@@ -16,7 +16,7 @@ package code
 
 // @lc code=start
 func searchRange(nums []int, target int) []int {
-	
+
 	return nil
 }
 
