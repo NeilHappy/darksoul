@@ -7,12 +7,13 @@ package main
 
 // @lc code=start
 func search(nums []int, target int) int {
-	left, right := 0, len(nums)
+	left := 0
+	right := len(nums)
 	for left < right {
 		mid := left + (right-left)>>1
-		if target == nums[mid] {
+		if nums[mid] == target {
 			return mid
-		} else if target < nums[mid] {
+		} else if nums[mid] > target {
 			right = mid
 		} else {
 			left = mid + 1

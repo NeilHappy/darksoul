@@ -7,30 +7,29 @@ package main
 
 // @lc code=start
 func minSubArrayLen(target int, nums []int) int {
-	length := len(nums)
 	left := 0
 	sum := 0
-	minLength := length + 1
-	for right := 0; right < length; right++ {
-		sum += nums[right]
+	length := len(nums) + 1
+	for right, v := range nums {
+		sum += v
 		for sum >= target {
-			curLength := right - left + 1
-			if minLength > curLength {
-				minLength = curLength
-			}
+			cLen := right - left + 1
+			length = min(cLen, length)
 			sum -= nums[left]
 			left++
 		}
 	}
-	if minLength == length+1 {
+	if length == len(nums)+1 {
 		return 0
 	}
-	return minLength
-
+	return length
 }
 
-func main() {
-
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
 }
 
 // @lc code=end

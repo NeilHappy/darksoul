@@ -13,13 +13,12 @@ func isPerfectSquare(num int) bool {
 		mid := left + (right-left)>>1
 		if mid*mid == num {
 			return true
-		} else if mid*mid < num {
-			left = mid + 1
-		} else {
+		} else if mid*mid > num {
 			right = mid
+		} else {
+			left = mid + 1
 		}
 	}
-
 	return false
 }
 
