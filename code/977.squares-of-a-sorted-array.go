@@ -12,7 +12,7 @@ func sortedSquares(nums []int) []int {
 	result := make([]int, length)
 	left := 0
 	right := length - 1
-	k := right
+	k := length - 1
 	for left <= right {
 		if nums[left]*nums[left] > nums[right]*nums[right] {
 			result[k] = nums[left] * nums[left]
