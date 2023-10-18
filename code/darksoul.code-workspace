@@ -10,5 +10,10 @@
 			"path": "../../../../Library/Mobile Documents/com~apple~CloudDocs/English/Code/design patterns"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"[python]": {
+			"editor.defaultFormatter": "ms-python.autopep8"
+		},
+		"python.formatting.provider": "none"
+	}
 }

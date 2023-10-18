@@ -14,12 +14,13 @@
  */
 package main
 
+/*
 type ListNode struct {
 	Val  int
 	Next *ListNode
 }
+*/
 
-/*
 func reverseList(head *ListNode) *ListNode {
 	var pre *ListNode
 	cur := head
@@ -31,6 +32,5 @@ func reverseList(head *ListNode) *ListNode {
 	}
 	return pre
 }
-*/
 
 // @lc code=end

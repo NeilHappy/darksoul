@@ -14,20 +14,19 @@ func backspaceCompare(s string, t string) bool {
 }
 
 func getCleanStr(s string) string {
-	// 先生成一个slice
-	resultSlice := make([]byte, len(s))
+	result := make([]byte, len(s))
 	slow := 0
 	for fast := 0; fast < len(s); fast++ {
-		if s[fast] == '#' {
-			if slow != 0 {
+		if s[fast] != '#' {
+			result[slow] = s[fast]
+			slow++
+		} else {
+			if slow > 0 {
 				slow--
 			}
-		} else {
-			resultSlice[slow] = s[fast]
-			slow++
 		}
 	}
-	return string(resultSlice[:slow])
+	return string(result[:slow])
 }
 
 /*
