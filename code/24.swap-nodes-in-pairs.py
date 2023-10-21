@@ -12,14 +12,13 @@
 #         self.next = next
 class Solution:
     def swapPairs(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        dummy = ListNode()
-        dummy.next = head
+        dummy = ListNode(0, head)
         cur = dummy
         while cur.next and cur.next.next:
             first = cur.next
             third = cur.next.next.next
 
-            cur.next = cur.next.next
+            cur.next = first.next
             cur.next.next = first
             first.next = third
             cur = cur.next.next

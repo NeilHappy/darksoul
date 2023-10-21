@@ -19,19 +19,5 @@ class Solution:
             A = A.next if A else headB
             B = B.next if B else headA
         return A
-        """
-        d = dict()
-        p = headA
-        while p != None:
-            d[p] = True
-            p = p.next
-        p = headB
-        while p != None:
-            if p in d:
-                return p
-            p = p.next
-        return None
-        """
-
 
 # @lc code=end

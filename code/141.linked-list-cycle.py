@@ -13,27 +13,18 @@
 
 class Solution:
     def hasCycle(self, head: Optional[ListNode]) -> bool:
-        """
-        p = head
-        d = set()
-        while p != None:
-            if p in d:
-                return True
-            else:
-                d.add(p)
-            p = p.next
-        return False
-        """
-        if not head or not head.next:
+        if (head and head.next) is None:
             return False
-
         slow = head
         fast = head.next
-        while slow != fast:
-            if not fast or not fast.next:
-                return False
+        if not (fast and fast.next):
+            return False
+        while fast.next and fast.next.next:
             slow = slow.next
             fast = fast.next.next
-        return slow
+            if slow == fast:
+                return True
+        return False
+
 
 # @lc code=end
