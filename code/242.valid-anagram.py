@@ -4,15 +4,16 @@
 # [242] Valid Anagram
 #
 
+
 # @lc code=start
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
-        ret = [0]*26
+        d = [0]*26
         for ch in s:
-            ret[ord(ch)-ord('a')] += 1
+            d[ord(ch)-ord('a')] += 1
         for ch in t:
-            ret[ord(ch)-ord('a')] -= 1
-        return ret == [0]*26
+            d[ord(ch)-ord('a')] -= 1
+        return d == [0]*26
 
 
 # @lc code=end
