@@ -7,17 +7,19 @@
 # @lc code=start
 class Solution:
     def findContentChildren(self, g: List[int], s: List[int]) -> int:
+        if not (g and s):
+            return 0
         g.sort()
         s.sort()
-        index_s = len(s)-1
-        result = 0
+        index_s = len(s) - 1
+        count = 0
         for index_g in range(len(g)-1, -1, -1):
             if index_s < 0:
                 break
-            if s[index_s] >= g[index_g]:
-                result += 1
+            if g[index_g] <= s[index_s]:
                 index_s -= 1
-        return result
+                count += 1
+        return count
 
 
 # @lc code=end

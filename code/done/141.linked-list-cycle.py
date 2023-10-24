@@ -17,14 +17,12 @@ class Solution:
             return False
         slow = head
         fast = head.next
-        if not (fast and fast.next):
-            return False
-        while fast.next and fast.next.next:
+        while slow != fast:
+            if (fast and fast.next) is None:
+                return False
             slow = slow.next
             fast = fast.next.next
-            if slow == fast:
-                return True
-        return False
+        return True
 
 
 # @lc code=end
