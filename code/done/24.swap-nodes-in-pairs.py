@@ -16,10 +16,10 @@ class Solution:
         cur = dummy
         while cur.next and cur.next.next:
             first = cur.next
+            second = cur.next.next
             third = cur.next.next.next
-
-            cur.next = first.next
-            cur.next.next = first
+            cur.next = second
+            second.next = first
             first.next = third
             cur = cur.next.next
         return dummy.next
