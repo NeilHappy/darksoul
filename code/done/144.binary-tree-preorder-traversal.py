@@ -14,24 +14,21 @@
 class Solution:
     def preorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
         """
-        result = list()
-
-        def preorder(root: TreeNode):
+        if root is None:
+            return []
+        root.left = self.preorderTraversal(root.left)
+        root.right = self.preorderTraversal(root.right)
+        return [root.val] + root.left + root.right
+        """
+        def preorder(root: Optional[TreeNode]) -> List[int]:
             if root is None:
-                return
+                return []
             result.append(root.val)
             preorder(root.left)
             preorder(root.right)
+
+        result = list()
         preorder(root)
         return result
-        """
-        if root is None:
-            return []
-
-        left = self.preorderTraversal(root.left)
-        right = self.preorderTraversal(root.right)
-
-        return [root.val] + left + right
-
 
 # @lc code=end
