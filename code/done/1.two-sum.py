@@ -9,11 +9,9 @@ class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
         d = dict()
         for index, v in enumerate(nums):
-            rest = target-v
+            rest = target - v
             if rest in d:
                 return [d[rest], index]
-            else:
-                d[v] = index
-        return []
+            d[v] = index
 
 # @lc code=end

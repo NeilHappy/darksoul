@@ -15,13 +15,13 @@ class Solution:
         for n1 in nums1:
             for n2 in nums2:
                 d[n1+n2] += 1
-        result = 0
+
+        count = 0
         for n3 in nums3:
             for n4 in nums4:
-                key = -n3-n4
-                if key in d:
-                    result += d[key]
-        return result
+                target = -n3-n4
+                count += d[target]
+        return count
 
 
 # @lc code=end

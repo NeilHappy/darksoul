@@ -7,16 +7,16 @@
 # @lc code=start
 class Solution:
     def isHappy(self, n: int) -> bool:
-        s = set()
-        while n not in s:
-            s.add(n)
+        dup = set()
+        while n not in dup:
+            dup.add(n)
             str_n = str(n)
-            new_n = 0
+            new_num = 0
             for i in str_n:
-                new_n += int(i)**2
-            if new_n == 1:
+                new_num += int(i)**2
+            if new_num == 1:
                 return True
-            n = new_n
+            n = new_num
         return False
 
 
