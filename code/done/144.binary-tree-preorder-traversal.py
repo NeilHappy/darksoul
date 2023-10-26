@@ -18,16 +18,16 @@ class Solution:
             return []
         root.left = self.preorderTraversal(root.left)
         root.right = self.preorderTraversal(root.right)
+
         return [root.val] + root.left + root.right
         """
-        def preorder(root: Optional[TreeNode]) -> List[int]:
+        def preorder(root: TreeNode):
             if root is None:
-                return []
+                return
             result.append(root.val)
             preorder(root.left)
             preorder(root.right)
-
-        result = list()
+        result = []
         preorder(root)
         return result
 

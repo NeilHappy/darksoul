@@ -11,18 +11,15 @@ class Solution:
         for item in s:
             if item == '(':
                 stack.append(')')
-            elif item == '[':
-                stack.append(']')
             elif item == '{':
                 stack.append('}')
-            elif not stack or stack[-1] != item:
+            elif item == '[':
+                stack.append(']')
+            elif not stack or item != stack[-1]:
                 return False
             else:
                 stack.pop()
-        if stack:
-            return False
-        else:
-            return True
+        return True if not stack else False
 
 
 # @lc code=end

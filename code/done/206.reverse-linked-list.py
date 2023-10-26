@@ -22,12 +22,14 @@ class Solution:
             cur = next
         return pre
         """
-        def reverse(cur: ListNode, pre: ListNode) -> ListNode:
+        def Reverse(cur: ListNode, pre: ListNode) -> ListNode:
             if cur is None:
                 return pre
             next = cur.next
             cur.next = pre
-            return reverse(next, cur)
-        return reverse(head, None)
+            return Reverse(next, cur)
+
+        return Reverse(head, None)
+
 
 # @lc code=end
