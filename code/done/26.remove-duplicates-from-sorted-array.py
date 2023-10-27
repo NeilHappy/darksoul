@@ -7,15 +7,14 @@
 # @lc code=start
 class Solution:
     def removeDuplicates(self, nums: List[int]) -> int:
-        slow = 0
-        for fast, num in enumerate(nums[1:], start=1):
-            if nums[slow] == nums[fast]:
+        left = 0
+        for right, v in enumerate(nums):
+            if left == right:
                 continue
-            else:
-                slow += 1
-                nums[slow] = nums[fast]
-
-        return slow+1
+            if v != nums[left]:
+                left += 1
+                nums[left] = v
+        return left+1
 
 
 # @lc code=end
