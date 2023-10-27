@@ -4,6 +4,7 @@
 # [144] Binary Tree Preorder Traversal
 #
 
+# 二叉树的迭代遍历，都还没有看
 # @lc code=start
 # Definition for a binary tree node.
 # class TreeNode:
