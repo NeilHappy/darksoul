@@ -15,22 +15,23 @@ class MyQueue:
         self.stack_in.append(x)
 
     def pop(self) -> int:
-        if self.empty():
-            return None
         if self.stack_out:
             return self.stack_out.pop()
         else:
             for i in range(len(self.stack_in)):
                 self.stack_out.append(self.stack_in.pop())
-            return self.stack_out.pop()
+        return self.stack_out.pop()
 
     def peek(self) -> int:
-        ans = self.pop()
-        self.stack_out.append(ans)
-        return ans
+        top = self.pop()
+        self.stack_out.append(top)
+        return top
 
     def empty(self) -> bool:
-        return not (self.stack_in or self.stack_out)
+        if not (self.stack_in or self.stack_out):
+            return True
+        else:
+            return False
 
 
 # Your MyQueue object will be instantiated and called as such:
