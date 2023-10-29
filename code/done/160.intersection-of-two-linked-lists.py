@@ -18,6 +18,16 @@ class Solution:
         while A != B:
             A = A.next if A else headB
             B = B.next if B else headA
+            """
+            if A is None:
+                A = headB
+            else:
+                A = A.next
+            if B is None:
+                B = headA
+            else:
+                B = B.next
+            """
         return A
 
 # @lc code=end
