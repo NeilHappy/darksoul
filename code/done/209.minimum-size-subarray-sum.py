@@ -16,8 +16,8 @@ class Solution:
                 result = min(result, right-left+1)
                 sum -= nums[left]
                 left += 1
-        if result == len(nums) + 1:
-            return 0
-        return result
+        # if result == len(nums) + 1:
+        #    return 0
+        return result if result <= len(nums) else 0
 
 # @lc code=end
