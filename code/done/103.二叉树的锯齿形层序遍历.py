@@ -18,8 +18,8 @@ class Solution:
     def zigzagLevelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
         if root is None:
             return []
-        q = deque([root])
         ans = []
+        q = deque([root])
         even = False
         while q:
             vals = []
@@ -33,5 +33,6 @@ class Solution:
             ans.append(vals[::-1] if even else vals)
             even = not even
         return ans
+
 
 # @lc code=end
