@@ -12,12 +12,13 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def isSymmetric(self, root: Optional[TreeNode]) -> bool:
-        return self.isSameTree(root.left, root.right)
-
-    def isSameTree(self, p: TreeNode, q: TreeNode) -> bool:
+    def isSameTree(self, p:TreeNode, q:TreeNode) ->bool:
         if p is None or q is None:
             return p is q
-        return p.val == q.val and self.isSameTree(p.left, q. right) and self.isSameTree(p.right, q.left)
-
+        return p.val == q.val and self.isSameTree(p.left, q.right) and self.isSameTree(p.right, q.left)
+    def isSymmetric(self, root: Optional[TreeNode]) -> bool:
+        if root is None:
+            return True
+        return self.isSameTree(root.left, root.right)
 # @lc code=end
+

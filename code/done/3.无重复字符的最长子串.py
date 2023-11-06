@@ -1,8 +1,3 @@
-# @before-stub-for-debug-begin
-from python3problem3 import *
-from typing import *
-# @before-stub-for-debug-end
-
 #
 # @lc app=leetcode.cn id=3 lang=python3
 #
@@ -10,20 +5,18 @@ from typing import *
 #
 
 # @lc code=start
-
-
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
-        left = 0
         dup = set()
+        left = 0
         result = 0
         for right, v in enumerate(s):
             while v in dup:
-                dup.remove(s[left])
-                left += 1
+                left_v = s[left]
+                dup.remove(left_v)
+                left+=1
             dup.add(v)
             result = max(result, right-left+1)
         return result
-
-
 # @lc code=end
+

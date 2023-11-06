@@ -10,11 +10,10 @@ class Solution:
         ans = []
         path = []
         n = len(s)
-
         def dfs(i):
             if i == n:
                 ans.append(path.copy())
-                return
+                return 
             for j in range(i, n):
                 t = s[i:j+1]
                 if t == t[::-1]:
@@ -23,6 +22,5 @@ class Solution:
                     path.pop()
         dfs(0)
         return ans
-
-
 # @lc code=end
+

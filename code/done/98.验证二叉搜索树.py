@@ -16,5 +16,7 @@ class Solution:
         if root is None:
             return True
         x = root.val
-        return left < x < right and self.isValidBST(root.left, left, x) and self.isValidBST(root.right, x, right)
+        return left<x<right and self.isValidBST(root.left, left, x) and self.isValidBST(root.right, x, right)
+
 # @lc code=end
+

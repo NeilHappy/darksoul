@@ -10,21 +10,18 @@ class Solution:
         MAPPING = "", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"
         ans = []
         n = len(digits)
-        path = ['']*n
-
         if n == 0:
             return []
-
+        path = ['']*n
         def dfs(i):
-            if i == n:
-                ans.append("".join(path))
-                return
-            for c in MAPPING[int(digits[i])]:
-                path.append(c)
+            if i ==n:
+                ans.append(''.join(path))
+                return 
+            for ch in MAPPING[int(digits[i])]:
+                path[i] = ch
                 dfs(i+1)
-                path.pop()
-
         dfs(0)
         return ans
-
+                
 # @lc code=end
+

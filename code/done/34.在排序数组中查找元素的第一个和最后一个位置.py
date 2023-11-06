@@ -15,12 +15,12 @@ class Solution:
                 left = mid+1
             else:
                 right = mid
-        return right
-
+        return left
     def searchRange(self, nums: List[int], target: int) -> List[int]:
-        start = self.lower_bound(nums, target)
+        start = self.lower_bound(nums,target)
         if start == len(nums) or nums[start] != target:
-            return [-1, -1]
+            return [-1,-1]
         end = self.lower_bound(nums, target+1) - 1
-        return [start, end]
+        return [start,end]
 # @lc code=end
+

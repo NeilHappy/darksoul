@@ -14,15 +14,14 @@
 class Solution:
     def rightSideView(self, root: Optional[TreeNode]) -> List[int]:
         ans = []
-
-        def f(node, depth):
+        def dfs(node, depth):
             if node is None:
-                return
+                return 
             if depth == len(ans):
                 ans.append(node.val)
-            f(node.right, depth+1)
-            f(node.left, depth+1)
-        f(root, 0)
+            dfs(node.right, depth+1)
+            dfs(node.left, depth+1)
+        dfs(root, 0)
         return ans
-
 # @lc code=end
+
